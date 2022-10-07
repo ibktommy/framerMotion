@@ -3,6 +3,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+	// Famer Motion Variants
+	const buttonVariants = {
+		hover: {
+			scale: [1, 1.1, 1, 1.1, 1, 1.1, 1, 1.1, 1],
+			textShadow: "0px 0px 8px rgb(255,255,255)",
+			boxShadow: "0px 0px 8px rgb(255,255,255)",
+		},
+	};
+
 	return (
 		<motion.div
 			className="home container"
@@ -12,14 +21,7 @@ const Home = () => {
 		>
 			<h2>Welcome to Pizza Joint</h2>
 			<Link to="/base">
-				<motion.button
-					whileHover={{
-						scale: 1.08,
-						textShadow: "0px 0px 8px rgb(255,255,255)",
-						boxShadow: "0px 0px 8px rgb(255,255,255)",
-					}}
-					transition={{ duration: 0.5 }}
-				>
+				<motion.button variants={buttonVariants} whileHover="hover">
 					Create Your Pizza
 				</motion.button>
 			</Link>
