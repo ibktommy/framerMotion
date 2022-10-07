@@ -12,8 +12,29 @@ const Toppings = ({ addTopping, pizza }) => {
 		"tomatoes",
 	];
 
+	// Famer Motion Variants
+	const containerVariants = {
+		hidden: {
+			x: "100vw",
+		},
+		visible: {
+			x: 0,
+			transition: {
+				duration: 0.5,
+				type: "spring",
+				stiffness: 90,
+				delay: 0.5,
+			},
+		},
+	};
+
 	return (
-		<div className="toppings container">
+		<motion.div
+			className="toppings container"
+			variants={containerVariants}
+			initial="hidden"
+			animate="visible"
+		>
 			<h3>Step 2: Choose Toppings</h3>
 			<ul>
 				{toppings.map((topping) => {
@@ -34,7 +55,7 @@ const Toppings = ({ addTopping, pizza }) => {
 			<Link to="/order">
 				<button>Order</button>
 			</Link>
-		</div>
+		</motion.div>
 	);
 };
 
